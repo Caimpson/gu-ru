@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Q1 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter which times table you would like to see followed by the desired amount of terms.\nThese should be seperated by a space E.g. 5 10");
+		int table = s.nextInt(); //stores which times table
+		int terms = s.nextInt(); //stores how many terms
+		s.nextLine();
+		timesTable(table, terms); //sends chosen times table and term amount to timesTable method
+		s.close();
+	}
+	public static void timesTable(int table, int terms) {
+		int i = 1;
+		do {
+			System.out.println(table * i);
+			i++;
+		}while (i < (terms + 1));
+	}
+}
