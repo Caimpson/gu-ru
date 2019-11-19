@@ -1,0 +1,125 @@
+
+//Caine Simpson 2138307
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+//Class to set up the main panel. This features sub panels in order to place components in the desired places.
+public class MainPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+
+	// Sub Panels for different sections
+	private JPanel topPanel = new JPanel();
+	private JPanel bottomPanel = new JPanel();
+	private JPanel bottomLeftPanel = new JPanel();
+	private JPanel bottomRightPanel = new JPanel();
+
+	// Panels for cards
+	private CardPanel card1 = new CardPanel(FruitMachine.getUnit(), 0, FruitMachine.getUnit(), 0);
+	private CardPanel card2 = new CardPanel(FruitMachine.getUnit(), FruitMachine.getUnit(), FruitMachine.getUnit(),
+			FruitMachine.getUnit());
+	private CardPanel card3 = new CardPanel(FruitMachine.getUnit(), 0, FruitMachine.getUnit(), 0);
+
+	// Labels for card panels
+	private JLabel card1Label = new JLabel();
+	private JLabel card2Label = new JLabel();
+	private JLabel card3Label = new JLabel();
+
+	// Labels for balance, message & win status
+	private JLabel balance = new JLabel();
+	private JLabel message = new JLabel();
+	private JLabel winStatus = new JLabel();
+
+	// Spin and new game buttons
+	private JButton spin = new JButton();
+	private JButton newGame = new JButton();
+
+	// Font
+	private Font f = new Font("Jokerman", Font.PLAIN, 22);
+
+	public MainPanel(int topBorder, int leftBorder, int bottomBorder, int rightBorder) {
+		this.setLayout(new BorderLayout());
+		Border emptyBorder = BorderFactory.createEmptyBorder(topBorder, leftBorder, bottomBorder, rightBorder);
+		this.setBorder(emptyBorder);
+
+		this.setTopPanel();
+		this.setBottomPanel();
+		this.setBottomLeftPanel();
+		this.setBottomRightPanel();
+	}
+
+	public JPanel setTopPanel() {
+		this.add(topPanel, BorderLayout.NORTH);
+		GridLayout topLayout = new GridLayout(3, 0, 0, FruitMachine.getUnit());
+		topPanel.setLayout(topLayout);
+
+		topPanel.add(balance);
+		balance.setFont(f);
+		balance.setText("Balance = 100");
+
+		topPanel.add(message);
+		message.setFont(f);
+		message.setText("Welcome!");
+
+		topPanel.add(winStatus);
+		winStatus.setFont(f);
+		winStatus.setText("");
+
+		return topPanel;
+	}
+
+	public JPanel setBottomPanel() {
+		this.add(bottomPanel, BorderLayout.SOUTH);
+		GridLayout bottomLayout = new GridLayout(0, 2);
+		bottomPanel.setLayout(bottomLayout);
+		bottomPanel.add(bottomLeftPanel);
+		bottomPanel.add(bottomRightPanel);
+
+		return bottomPanel;
+	}
+
+	public JPanel setBottomLeftPanel() {
+
+		// Setting up 1st Card
+		bottomLeftPanel.add(card1);
+		card1.add(card1Label);
+		card1Label.setFont(f);
+		card1Label.setText("King");
+
+		// Setting up 2nd Card
+		bottomLeftPanel.add(card2);
+		card2.add(card2Label);
+		card2Label.setFont(f);
+		card2Label.setText("Queen");
+
+		// Setting up 3rd Card
+		bottomLeftPanel.add(card3);
+		card3.add(card3Label);
+		card3Label.setFont(f);
+		card3Label.setText("Jack");
+		return bottomLeftPanel;
+	}
+
+	// Bottom right panel with 'spin' and 'new game' buttons
+	public JPanel setBottomRightPanel() {
+		GridLayout bottomLayout = new GridLayout(2, 0);
+		bottomRightPanel.setLayout(bottomLayout);
+
+		bottomRightPanel.add(spin);
+		spin.setFont(f);
+		spin.setText("Spin");
+
+		bottomRightPanel.add(newGame);
+		newGame.setFont(f);
+		newGame.setText("New Game");
+
+		return bottomRightPanel;
+	}
+
+}
