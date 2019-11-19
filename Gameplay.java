@@ -33,12 +33,21 @@ public class Gameplay {
 		return randomCardSet;
 	}
 	
-//	public void checkCards() {
-//		for (int i = 0; i < 3; i++) {
-//			if (getRandomCardSet()[i].equals(getRandomCardSet()[i+1])&&getRandomCardSet()[i].equals("Joker"))
-//							
+	public int checkCards() {
+		int jokerCount = 0;
+		int snapCount = 0;
+		for (int i = 0; i < 3; i++) {
+			if (getRandomCardSet()[i].equals("Joker")) 
+				jokerCount--;
+		}	
+//			if (getRandomCardSet()[i].equals(getRandomCardSet()[i+1]))
+//					snapCount++;			
 //		}
-//	}
+		//if (jokerCount!=0)
+			return jokerCount;
+//		else
+//			return 1;
+	}
 
 	
 }
