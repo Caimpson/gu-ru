@@ -23,8 +23,12 @@ public class FruitMachine extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new FruitMachine();
-
+		//new FruitMachine();
+		Gameplay testGame = new Gameplay();
+		System.out.println(testGame.getRandomCardSet()[0]);
+		System.out.println(testGame.getRandomCardSet()[1]);
+		System.out.println(testGame.getRandomCardSet()[2]);
+		System.out.println(testGame.checkCards());
 	}
 
 }
