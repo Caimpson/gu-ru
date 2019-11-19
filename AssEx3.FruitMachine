@@ -8,7 +8,7 @@ public class FruitMachine extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	// Unit used for layout management
-	final static int unit = 30;
+	final int unit = 30;
 
 	// Constructor for FruitMachine window
 	public FruitMachine() {
@@ -18,13 +18,8 @@ public class FruitMachine extends JFrame {
 		this.setSize(30 * unit, 20 * unit);
 		this.setLayout(new BorderLayout());
 
-		MainPanel gameWindow = new MainPanel(2 * unit, 2 * unit, 2 * unit, 2 * unit);
+		MainPanel gameWindow = new MainPanel(unit);
 		this.add(gameWindow);
-	}
-
-	// Getter for unit
-	public static int getUnit() {
-		return unit;
 	}
 
 	public static void main(String[] args) {
