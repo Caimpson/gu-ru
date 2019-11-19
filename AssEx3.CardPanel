@@ -1,0 +1,22 @@
+
+//Caine Simpson 2138307
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+//Class for setting up the panels which represent the cards.
+public class CardPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+
+	public CardPanel(int topBorder, int leftBorder, int bottomBorder, int rightBorder) {
+		this.setLayout(new BorderLayout());
+		Border emptyBorder = BorderFactory.createEmptyBorder(topBorder, leftBorder, bottomBorder, rightBorder);
+		Border blackline = BorderFactory.createLineBorder(Color.black);
+		this.setBorder(emptyBorder);
+		this.setBorder(blackline);
+		this.setBackground(Color.YELLOW);
+	}
+}
