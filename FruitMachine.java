@@ -1,34 +1,32 @@
-
 //Caine Simpson, 2138307
 
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
+/*Frame and main method. The frame consists of a main panel (gameWindow) 
+ * on which all of the other components are placed. 
+ * The main method simply creates a new frame */
 public class FruitMachine extends JFrame {
 	private static final long serialVersionUID = 1L;
+	// Unit used for aiding with the positioning of components
+	final int UNIT = 30;
 
-	// Unit used for layout management
-	final int unit = 30;
-
-	// Constructor for FruitMachine window
+// Constructor for FruitMachine window
 	public FruitMachine() {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Fruit Machine");
-		this.setSize(30 * unit, 20 * unit);
-		this.setLayout(new BorderLayout());
+		this.setSize(30 * UNIT, 20 * UNIT);// Size of window is 30X20 of the chosen units.
 
-		MainPanel gameWindow = new MainPanel(unit);
+		// Creating the main panel and adding it to the frame
+		MainPanel gameWindow = new MainPanel(UNIT);
 		this.add(gameWindow);
 	}
 
+
+// Main method
 	public static void main(String[] args) {
-		//new FruitMachine();
-		Gameplay testGame = new Gameplay();
-		System.out.println(testGame.getRandomCardSet()[0]);
-		System.out.println(testGame.getRandomCardSet()[1]);
-		System.out.println(testGame.getRandomCardSet()[2]);
-		System.out.println(testGame.checkCards());
+		// Creating new window
+		new FruitMachine();
 	}
 
 }
